@@ -11,7 +11,7 @@ class RedisClient {
   constructor() {
     this.client = createClient();
     this.isClientConnected = true;
-    this.client.on('error', err => {
+    this.client.on('error', (err) => {
       console.log('Redis Client Error', err);
       this.isClientConnected = false;
     });
@@ -19,7 +19,7 @@ class RedisClient {
       this.isClientConnected = true;
     });
   }
-  
+
   /**
    * Checks if connection to Redis is Alive
    * @return {boolean} true if connection alive or false if not
