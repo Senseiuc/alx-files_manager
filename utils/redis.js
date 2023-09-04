@@ -1,12 +1,13 @@
-/**
-  * A redis client setup
-  */
-
 import { createClient } from 'redis';
 import { promisify } from 'util';
 
+/**
+  * A redis client setup
+  */
 class RedisClient {
-
+  /**
+    *   Creates a client instance
+    */
   constructor() {
     this.client = createClient();
     this.isClientConnected = true;
@@ -14,7 +15,6 @@ class RedisClient {
       console.log('Redis Client Error', err);
       this.isClientConnected = false;
     });
-    
     this.client.on('connect', () => {
       this.isClientConnected = true;
     });
@@ -60,5 +60,4 @@ class RedisClient {
 }
 
 const redisClient = new RedisClient();
-
 export default redisClient;
